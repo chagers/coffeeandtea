@@ -1,27 +1,3 @@
-var Guess = function(noun) {
-  this.noun = noun;
-};
-
-var isCorrectGuess = function(nounOne, nounTwo) {
-  var guessOne = nounOne.toLowerCase().search("t");
-  var guessTwo = nounTwo.toLowerCase().search("t");
-  if (guessOne < 0 && guessTwo >= 0) {
-    alert("Whoopee, now you're on the trolley! Can you guess right again?");
-  } else {
-    alert("Nope! Try again, kiddo.");
-  }
-};
-
-
-$(function(){
-  $(".guess-area").on("click", ".btn-large", function() {
-    var guessOne = new Guess(document.getElementById("guess-one").value);
-    var guessTwo = new Guess(document.getElementById("guess-two").value);
-    return isCorrectGuess(guessOne.noun, guessTwo.noun);
-  });
-});
-
-
 
 var express = require('express');
 var path = require('path');
@@ -83,5 +59,29 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+
+var Guess = function(noun) {
+  this.noun = noun;
+};
+
+var isCorrectGuess = function(nounOne, nounTwo) {
+  var guessOne = nounOne.toLowerCase().search("t");
+  var guessTwo = nounTwo.toLowerCase().search("t");
+  if (guessOne < 0 && guessTwo >= 0) {
+    alert("Whoopee, now you're on the trolley! Can you guess right again?");
+  } else {
+    alert("Nope! Try again, kiddo.");
+  }
+};
+
+
+$(function(){
+  $(".guess-area").on("click", ".btn-large", function() {
+    var guessOne = new Guess(document.getElementById("guess-one").value);
+    var guessTwo = new Guess(document.getElementById("guess-two").value);
+    return isCorrectGuess(guessOne.noun, guessTwo.noun);
+  });
+});
 
 
