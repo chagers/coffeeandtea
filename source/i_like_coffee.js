@@ -1,4 +1,5 @@
 var Guess = function(noun) {
+var Guess = function(noun) {
   this.noun = noun;
 };
 
