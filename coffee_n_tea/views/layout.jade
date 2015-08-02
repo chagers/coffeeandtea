@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title coffee 'n tea
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js")
+  body.
+  div(class="container center-align")
+    <h1>I like Coffee, but I don't like Tea.</h1>
+    <h3>Can you try and figure out what I like and don't like?</h3>
+    <h5>Enter two guesses below to get started:</h5>
+    div(class="guess-area")
+      div(class="row")
+        div(class="input-field col m4 offset-m2")
+          <label for="noun-one">First Guess</label>
+          <input placeholder="e.g. coffee" id="guess-one" type="text" class="validate" value="">
+        div(class="input-field col m4")
+          <label for="noun-two">Second Guess</label>
+          <input placeholder="e.g. tea" id="guess-two" type="text" class="validate" value="">
+      <a class="waves-effect waves-light btn-large"><i class="material-icons left">label_outline</i>guess</a>
