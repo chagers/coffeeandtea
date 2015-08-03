@@ -1,6 +1,9 @@
 .parallax-container {
   height: 100px;
 }
+.guess-area {
+  margin-top: 20px;
+}
 .btn-large {
   margin-bottom: 20px;
 }
