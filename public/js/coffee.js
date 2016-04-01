@@ -6,9 +6,9 @@ var isCorrectGuess = function(nounOne, nounTwo) {
   var guessOne = nounOne.toLowerCase().search("t");
   var guessTwo = nounTwo.toLowerCase().search("t");
   if (guessOne < 0 && guessTwo >= 0) {
-    alert("Whoopee, now you're on the trolley! Can you guess right again?");
+    $('#modal1').openModal();
   } else {
-    alert("Nope! Try again, kiddo.");
+    $('#modal2').openModal();
   }
 };
 
