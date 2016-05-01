@@ -1,9 +1,7 @@
-.parallax-container {
-  height: 100px;
-}
-.guess-area {
-  margin-top: 20px;
-}
 .btn-large {
-  margin-bottom: 20px;
+  margin-bottom: 2em;
+}
+
+button:focus {
+  color: #7b1fa2;
 }

@@ -6,21 +6,23 @@
 
 <div class="container center-align">
   <h1>I like Coffee, but I don't like Tea.</h1>
-  <h3><span class="orange-text text-darken-4 light">Can you figure out the things I like and don't like...?</span></h3>
+  <h3>
+    <span class="orange-text text-darken-4 light">Can you figure out the things I like and don't like...?</span>
+  </h3>
   <div class="divider"></div>
   <p class="flow-text">Enter two guesses below to get started:</p>
   <div class="guess-area">
     <div class="row">
       <div class="input-field col m4 offset-m2">
         <label for="noun-one"><span class="purple-text text-darken-2">First Guess</span></label>
-        <input placeholder="e.g. coffee" id="guess-one" type="text" class="validate" value="">
+        <input placeholder="e.g. coffee" id="guess-one" type="text" class="validate" pattern="^[^0-9]*$" value="">
       </div>
       <div class="input-field col m4">
         <label for="noun-two"><span class="purple-text text-darken-2">Second Guess</span></label>
-        <input placeholder="e.g. tea" id="guess-two" type="text" class="validate" value="">
+        <input placeholder="e.g. tea" id="guess-two" type="text" class="validate" pattern="^[^0-9]*$" value="">
       </div>
     </div>
-    <a class="waves-effect waves-light btn-large brown lighten-2"><i class="material-icons left">cloud</i>guess!</a>
+    <button class="waves-effect waves-light btn-large brown lighten-2 active" type="submit" name="action"><i class="material-icons left">cloud</i>you like?</button>
   </div>
 </div>
 

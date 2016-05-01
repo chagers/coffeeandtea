@@ -1,22 +1,36 @@
-var Guess = function(noun) {
-  this.noun = noun;
-};
+$(document).ready(function () {
+  $(".parallax").parallax();
 
-var isCorrectGuess = function(nounOne, nounTwo) {
-  var guessOne = nounOne.toLowerCase().search("t");
-  var guessTwo = nounTwo.toLowerCase().search("t");
-  if (guessOne < 0 && guessTwo >= 0) {
-    $('#modal1').openModal();
-  } else {
-    $('#modal2').openModal();
-  }
-};
+  $("#guess-one").focus();
 
-$(function(){
-  $('.parallax').parallax();
-  $(".guess-area").on("click", ".btn-large", function() {
-    var guessOne = new Guess(document.getElementById("guess-one").value);
-    var guessTwo = new Guess(document.getElementById("guess-two").value);
-    return isCorrectGuess(guessOne.noun, guessTwo.noun);
+  var Entry = function(word) {
+    this.word = word;
+  };
+
+  Entry.prototype.hasT = function () {
+    if(this.word.search("t") >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  $("button").on("click", function() {
+
+    var guessOne = new Entry($("#guess-one").val()).hasT();
+    var guessTwo = new Entry($("#guess-two").val()).hasT();
+
+    if (guessOne === false && guessTwo === true) {
+      $("#modal1").openModal();
+      $("#guess-one, #guess-two").val("");
+    } else {
+      $("#modal2").openModal();
+      $("#guess-one, #guess-two").val("");
+    }
+
+    $("#modal1, #modal2").on("click", function() {
+      $("#guess-one").focus();
+    });
   });
+
 });
