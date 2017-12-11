@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   $("#guess-one").focus();
 
-  var Entry = function(word) {
+  const Entry = function(word) {
     this.word = word;
   };
 
@@ -17,8 +17,8 @@ $(document).ready(function () {
 
   $("button").on("click", function() {
 
-    var guessOne = new Entry($("#guess-one").val()).hasT();
-    var guessTwo = new Entry($("#guess-two").val()).hasT();
+    const guessOne = new Entry($("#guess-one").val()).hasT();
+    const guessTwo = new Entry($("#guess-two").val()).hasT();
 
     if (guessOne === false && guessTwo === true) {
       $("#modal1").openModal();
