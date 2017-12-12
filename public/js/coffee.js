@@ -1,36 +1,44 @@
-$(document).ready(function () {
-  $(".parallax").parallax();
+$(document).ready(() => {
+  $('.parallax').parallax();
+  $('#guess-one').focus();
 
-  $("#guess-one").focus();
-
-  const Entry = function(word) {
-    this.word = word;
-  };
-
-  Entry.prototype.hasT = function () {
-    if(this.word.search("t") >= 0) {
-      return true;
-    } else {
+  class Entry {
+    constructor(word) {
+      this.word = word;
+    }
+    hasT() {
+      if (this.word.search('t') >= 0) {
+        return true;
+      }
       return false;
     }
-  };
+  }
 
-  $("button").on("click", function() {
+  let winCount = 0;
+  const clearGuesses = () => $('#guess-one, #guess-two').val(''),
+        winGame = (wins) => {
+          if (wins > 4) {
+            return true;
+          }
+          return false;
+        };
 
-    const guessOne = new Entry($("#guess-one").val()).hasT();
-    const guessTwo = new Entry($("#guess-two").val()).hasT();
+  $('#submit-guess').click(() => {
+    const guessOne = new Entry($('#guess-one').val()),
+          guessTwo = new Entry($('#guess-two').val());
 
-    if (guessOne === false && guessTwo === true) {
-      $("#modal1").openModal();
-      $("#guess-one, #guess-two").val("");
+    if (!guessOne.hasT() && guessTwo.hasT()) {
+      winCount++;
+      $('#win').openModal();
     } else {
-      $("#modal2").openModal();
-      $("#guess-one, #guess-two").val("");
+      winCount > 0 ? winCount-- : winCount;
+      $('#lose').openModal();
     }
-
-    $("#modal1, #modal2").on("click", function() {
-      $("#guess-one").focus();
-    });
+    $('.modal-close').focus();
+    clearGuesses();
+    winGame(winCount);
   });
+
+  $('.modal-close').click(() => $('#guess-one').focus());
 
 });
