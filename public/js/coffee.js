@@ -16,14 +16,10 @@ $(document).ready(() => {
 
   let winCount = 0;
   const clearGuesses = () => $('#guess-one, #guess-two').val(''),
-        winGame = (wins) => {
-          if (wins > 4) {
-            return true;
-          }
-          return false;
-        };
+        winGame = (wins) => (wins > 4) ? true : false;
 
   $('#submit-guess').click(() => {
+
     const guessOne = new Entry($('#guess-one').val()),
           guessTwo = new Entry($('#guess-two').val());
 
